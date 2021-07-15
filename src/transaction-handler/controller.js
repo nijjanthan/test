@@ -38,7 +38,7 @@ module.exports = function () {
                     var history= `INSERT INTO history ( user_id, user_name, password, place, dob) VALUES (${data1[0].user_id}, '${data1[0].user_name}',  '${data1[0].g_password}', '${data1[0].place}', '${data1[0].dob}')`;
                     query = sequelize.query(history, { type: sequelize.QueryTypes.INSERT });
                     query.then(
-                        data => map.post(req, res, data),
+                        data => map.update(req, res, data),
                         err => map.error(req, res, err)
                     )
                 }

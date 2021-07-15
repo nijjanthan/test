@@ -42,6 +42,15 @@ module.exports = function () {
       };
       res.status(200).send(result);
     },
+    update(req, res, data) {
+      console.log(JSON.stringify(data),"update<<<<<<")
+      const result = {
+        success,
+        data,
+        message: 'Updated Successful.',
+      };
+      res.status(200).send(result);
+    },
     put(req, res, data){
       console.log(JSON.stringify(data),"put<<<<<<<<<<<<<<")
       const result = {
