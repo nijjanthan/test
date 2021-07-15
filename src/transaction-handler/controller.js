@@ -103,7 +103,7 @@ module.exports = function () {
                                 if (emailValue === 0) {
                                     const obj ={
                                         user_name: req.body.user_name,
-                                        google_id: req.body.google_name,
+                                        google_id: req.body.email,
                                         g_password: req.body.password,
                                         place: req.body.place,
                                         dob : req.body.dob,
