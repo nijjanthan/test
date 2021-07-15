@@ -1,0 +1,61 @@
+{
+    "dataDefinitions": {
+      "history_id": {
+        "type": "DataTypes.INTEGER",
+        "primaryKey": true,
+        "autoIncrement": true,
+        "allowNull": false
+      },
+      "user_id": {
+        "type": "DataTypes.INTEGER",
+        "allowNull": false
+      },
+      "user_name": {
+        "type": "DataTypes.STRING",
+        "allowNull": false
+      },
+      "facebook_id": {
+        "type": "DataTypes.STRING",
+        "allowNull": true
+      },
+      "google_id": {
+        "type": "DataTypes.STRING",
+        "allowNull": true
+      },
+      "g_password": {
+        "type": "DataTypes.STRING",
+        "allowNull": false
+    },
+    "dob": {
+      "type": "DataTypes.STRING",
+      "allowNull": false
+    },
+      "updatedAt": {
+        "type": "DataTypes.STRING",
+        "allowNull": false
+      },
+     
+      "place": {
+        "type": "DataTypes.STRING",
+        "allowNull": false
+      }
+    },
+    "list": {
+      "tableInfo": {
+        "type": "table",
+        "name": "history",
+        "baseQuery": "select * from history",
+        "whereClause": "history_id",
+        "order": "desc"
+      }
+    },
+    "detail": {
+      "tableInfo": {
+        "type": "table",
+        "name": "histroy",
+        "baseQuery": "select * from history",
+        "whereClause": "history_id",
+        "order": "desc"
+      }
+    }
+  }

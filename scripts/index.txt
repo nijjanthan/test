@@ -1,0 +1,58 @@
+CREATE TABLE users (
+    user_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_name varchar(255) NOT NULL,
+	mobile_number varchar(100) NOT NULL,
+	email varchar(100)NOT NULL,
+    password varchar(255) NOT NULL,
+	pin varchar(100) NOT NULL,
+	active int(10) NOT NULL,
+	user_created_by varchar(100) NOT NULL,
+	gender varchar(255) NOT NULL,
+    date_of_birth TIMESTAMP NOT NULL,
+    place_of_living varchar(255) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE companies (
+    company_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    company_name varchar(255) NOT NULL,
+	company_type varchar(100) NOT NULL,
+	address varchar(255) NOT NULL,
+    contact_info varchar(255) NOT NULL,
+	active int(10) NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE suggestions (
+    suggestion_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id int NOT NULL,
+    company_id int NOT NULL,
+    suggestion varchar(1000) NOT NULL,
+    rating int4(11) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+	FOREIGN KEY (company_id) REFERENCES companies(company_id),
+     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+
+)
+
+CREATE TABLE email_verification (
+    email_verification_id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	user_name varchar(100) NOT NULL,
+	email varchar(255) NOT NULL,
+	auth_code varchar(255) NOT NULL,
+    verify int4 NOT NULL,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE VIEW suggestionsListView AS
+SELECT suggestions.*, users.user_name, companies.company_name, companies.company_type, companies.address
+FROM suggestions
+LEFT JOIN users ON suggestions.user_id = users.user_id
+LEFT JOIN companies ON suggestions.company_id = companies.company_id
+ORDER BY suggestions.suggestion_id desc;

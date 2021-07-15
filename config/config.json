@@ -1,0 +1,17 @@
+{
+  "development": {
+      "username": "ur2ndlot_dev",
+      "password": "kUawDssDWN78Gcnm",
+      "database": "stag-reptrack",
+      "host": "ur2ndlot.cdalxf05nx8q.us-east-1.rds.amazonaws.com",
+      "port": "3306",
+      "dialect": "mysql",
+      "connectTimeout": "30000",
+      "define": {
+          "freezeTableName": true
+      },
+      "application": {
+          "port": 4000
+      }
+  }
+}

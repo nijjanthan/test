@@ -1,0 +1,19 @@
+{
+    "appenders": [{
+        "type": "logLevelFilter",
+        "level": "ERROR",
+        "appender": {
+            "type": "file",
+            "filename": "./logs/error.log",
+            "maxLogSize": 20480,
+            "backups": 3
+        }
+    }, {
+        "type": "file",
+        "filename": "./logs/application.log",
+        "maxLogSize": 20480,
+        "backups": 10
+    }, {
+        "type": "console"
+    }]
+}
